@@ -1,0 +1,87 @@
+package comandos;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class ComandosSet implements Iterable<ComandosSet> {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Crie um conjunto e adicione notas:");
+		Set<Double> notas = new HashSet<>(Arrays.asList(7d, 8.5, 9.3, 5d, 7d, 0d, 3.6));
+		System.out.println(notas.toString()); // HasSet exibe em ordem aleatória
+		
+		System.out.println("Confira se a nota 5 está no conjunto: "+notas.contains(5d));
+		// O método booleano contains verifica um objeto
+		
+		System.out.println("Exiba a menor nota: " + Collections.min(notas));
+		System.out.println("Exiba a menor nota: " + Collections.max(notas));
+		
+		System.out.println("Exiba a soma dos valores: ");
+		Double soma = 0.0;
+		Iterator<Double> itera = notas.iterator();
+		
+		while(itera.hasNext()) {
+			Double proximo = itera.next();
+			soma += proximo;
+		}
+		System.out.println(soma);
+		
+		System.out.println("Exiba a média das notas: " + soma/notas.size());
+		
+		System.out.println("Remova a nota 0.0: ");
+		notas.remove(0d);
+		System.out.println(notas);
+		
+		System.out.println("Remova todas as notas menores que 7: ");
+		Iterator<Double> removaNotas = notas.iterator();
+		while(removaNotas.hasNext()) {
+			Double next = removaNotas.next();
+			if(next < 7d) removaNotas.remove();
+		}
+		System.out.println(notas);
+		
+		System.out.println("Exiba as notas na ordem em que foram adicionadas: ");
+		Set<Double> notas1 = new LinkedHashSet<>();
+			notas1.add(7d);
+			notas1.add(8.5);
+			notas1.add(9.3);
+			notas1.add(5d);
+			notas1.add(7d);
+			notas1.add(0d);
+			notas1.add(3.6);
+
+		System.out.println(notas1);
+		
+		System.out.println("Exiba todas as notas em ordem crescente: ");
+		Set<Double> notas3 = new TreeSet<>(notas1); // TreeSet ordena de forma natural(crescente ou alfabética)													// É necessário a implementação da classe Comparable 
+		System.out.println(notas3);
+		
+		System.out.println("Apague todas as notas1: ");
+		notas1.clear();
+		System.out.println(notas1);
+		
+		System.out.println("Confira se o conjunto está vazio: "+notas1.isEmpty());
+		// O método booleano isEmpty confere se um objeto é vazio.
+
+//		Set não trabalha com os metnotasodos Get, Set e Index!!!
+//		System.out.println("Remova a nota na posição 0: "); --> Set não permite remover através de uma posição
+//		System.out.println("Exiba a terceira nota adicionada: "); // --> Set não tem o método get para passar o index
+//		System.out.println("Exiba a posição da nota 5:"); // --> Set não permite busca de acordo com a posição
+//		System.out.println("Adicione a nota 8 na posição 4:"); // --> Set não permite adicionar de acordo com a posição
+//		System.out.println("Subtitua a nota 5 pela nota 6:"); // --> Set não permite substituição porque não tem o método set
+		
+	}
+
+	@Override
+	public Iterator<ComandosSet> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

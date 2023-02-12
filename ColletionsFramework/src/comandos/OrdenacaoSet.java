@@ -1,0 +1,70 @@
+package comandos;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class OrdenacaoSet {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Adicione de forma aleatória: ");
+		Set<Serie> series = new HashSet<>(){{
+			add(new Serie("jafe", "Romance", 60));
+			add(new Serie("O livro de Eli", "Apocaliptico", 60));
+			add(new Serie("Javao", "Programacao", 180));
+		}};
+		
+		for (Serie serie : series) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+		
+		System.out.println();
+		System.out.println("Adicione e exiba na ordem em que foi inserido: ");
+		Set<Serie> series1 = new LinkedHashSet<>(){{
+			add(new Serie("Javinha", "Romance", 60));
+			add(new Serie("Javas", "Apocaliptico", 80));
+			add(new Serie("Javao", "Programacao", 180));
+		}};
+		
+		for (Serie serie : series1) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+
+		System.out.println();
+		System.out.println("Exiba de forma natural: (numérica ou alfabética");
+		Set<Serie> series2 = new TreeSet<Serie>(series1);
+		
+		for (Serie serie : series2) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+		
+		System.out.println();
+		System.out.println("Ordene natural por nome/genero/tempoEpisodio: ");
+		Set<Serie> series3 = new TreeSet<Serie>(new CompareNomeGeneroTempoEpisodio());
+		series3.addAll(series1);
+		for (Serie serie : series3) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+		
+		System.out.println();
+		System.out.println("Ordene por genero: ");
+		Set<Serie> series4 = new TreeSet<Serie>(new CompareGenero());
+		series4.addAll(series1);
+		for (Serie serie : series4) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+		
+		System.out.println();
+		System.out.println("Ordene de forma natural por episódio: ");
+		Set<Serie> series5 = new TreeSet<Serie>(new TempoEpisodio());
+		series5.addAll(series1);
+		for (Serie serie : series5) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+	}
+
+}
