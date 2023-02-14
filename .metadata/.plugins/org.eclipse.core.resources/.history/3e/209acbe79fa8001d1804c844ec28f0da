@@ -1,0 +1,17 @@
+package comandos;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class ExercicioSet {
+
+	public static void main(String[] args) {
+		Set<String> arcoIris = new HashSet<>(Arrays.asList("Vermelho","Laranja","Amarelo","Verde","Azul","Anil","Violeta"));
+		for (String string : arcoIris) {
+			System.out.println(arcoIris);
+		}
+
+	}
+
+}

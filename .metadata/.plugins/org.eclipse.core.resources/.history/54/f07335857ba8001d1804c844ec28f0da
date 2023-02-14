@@ -1,0 +1,21 @@
+package comandos;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class OrdenacaoSet {
+
+	public static void main(String[] args) {
+		Set<Serie> series = new HashSet<>() {{
+			add(new Serie(" jafe", " Romance", 60));
+			add(new Serie(" O livro de Eli", " Apocaliptico", 60));
+			add(new Serie(" Javao", " Programacao", 180));
+		}
+		};
+		
+		for (Serie serie : series) {
+			System.out.println(serie);
+		}
+	}
+
+}

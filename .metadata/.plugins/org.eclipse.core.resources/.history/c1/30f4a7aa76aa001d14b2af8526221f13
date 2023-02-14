@@ -1,0 +1,15 @@
+package comandos;
+
+public class OrdenacaoMap {
+
+	public static void main(String[] args) {
+		/*Dadas as seguintes informações sobre meus livros favoritos e seus autores,
+		 * crie um dicionário e o ordene:
+		 * 
+		 * Autor: Hawking, Stephen - Livro: Uma breve história do tempo - Páginas: 256
+		 * Autor: Duhigg, Charles - Livro: O poder do hábito - Páginas: 408
+		 * Autor: Harari, Yuval Noah - Livro: Lições para o século - Páginas: 432*/
+
+	}
+
+}

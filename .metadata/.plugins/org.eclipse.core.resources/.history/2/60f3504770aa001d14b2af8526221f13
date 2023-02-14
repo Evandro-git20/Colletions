@@ -1,0 +1,35 @@
+package comandos;
+
+public class Livro {
+	
+	String nome;
+	Integer paginas;
+	
+	public Livro(String nome, Integer paginas) {
+		super();
+		this.nome = nome;
+		this.paginas = paginas;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Integer getPaginas() {
+		return paginas;
+	}
+
+	public void setPaginas(Integer paginas) {
+		this.paginas = paginas;
+	}
+
+	@Override
+	public String toString() {
+		return "Livro [nome=" + nome + ", paginas=" + paginas + "]";
+	}
+	
+}

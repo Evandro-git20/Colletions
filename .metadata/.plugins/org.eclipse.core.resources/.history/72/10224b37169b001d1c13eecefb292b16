@@ -1,0 +1,63 @@
+package oo;
+
+import java.util.Scanner;
+
+/*Cria	uma	classe	para	representar	uma	conta	corrente	que	possui	um	
+número,	um	saldo,	um	status	que	informa	se	ela	é	especial	ou	não,	um	
+limite. Desenvolva	métodos	para	realizar	saque	(verificando	se	o	cliente	
+pode	realizar	saques),	despositar	dinheiro,	consultar	saldo	e	verificar	se	o	
+cliente	está	usando	cheque	especial	ou	não.	Desenvolva	um	programa	
+para	testar	essa	classe.*/
+
+public class ContaCorrenteMovimentacao extends ContaCorrente{
+	
+	Scanner scan = new Scanner(System.in);
+	double valorSaque;
+	double valorCheque;
+	String decisaoCheque;
+	boolean cheque;
+	double limiteCheque;
+	
+	
+	void utilizarChequeEspecial() {
+		limiteCheque = 1.000;
+		System.out.println("Digite o valor desejado!");
+		valorCheque = scan.nextDouble();
+		
+		while(valorCheque > limiteCheque) {
+			System.out.println("Valor digitado maior do que o limite!\nO limite do seu cheque especial é de "+limiteCheque+" reais.");
+			System.out.println("Digite o valor desejado!");
+			valorCheque = scan.nextDouble();
+		}
+		
+		System.out.println("Emprestimo no valor de "+valorCheque+" realizado com sucesso!");
+	}
+	
+	void sacar() {
+		if(saldo > 0) {
+			System.out.println("Digite o valor do saque!");
+			valorSaque = scan.nextDouble();
+			if(valorSaque > 0 && valorSaque < saldo ) {
+				System.out.println("Saque no valor de "+valorSaque+" reais realizado com sucesso!");
+			}
+		}else {
+			
+			System.out.println("Conta sem saldo.\nDeseja utilizar o cheque especial?\nDigite 's' para SIM ou 'n' para NÂO");
+			decisaoCheque = scan.nextLine();
+			
+			if(decisaoCheque == "s") {
+				utilizarChequeEspecial();
+			}else if(decisaoCheque == "n"){
+				System.out.println("Programa encerrado!");
+			}
+
+			/*while(decisaoCheque != "s" || decisaoCheque != "n") {
+				System.out.println("Informação inválida!!!");
+				System.out.println("Conta sem saldo.\nDeseja utilizar o cheque especial?\nDigite 's' para SIM ou 'n' para NÂO");
+				decisaoCheque = scan.next();
+			}*/
+			
+		}
+	}
+
+}

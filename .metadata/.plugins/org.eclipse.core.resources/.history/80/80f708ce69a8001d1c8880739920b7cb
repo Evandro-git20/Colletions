@@ -1,0 +1,20 @@
+package comandos;
+
+import java.util.Iterator;
+
+public class Set implements Iterable<Set> {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Crie um conjunto e adicione notas:");
+		Set
+		
+	}
+
+	@Override
+	public Iterator<Set> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

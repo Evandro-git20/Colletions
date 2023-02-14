@@ -1,0 +1,12 @@
+package oo;
+
+public class teste {
+
+	public static void main(String[] args) {
+		
+		ContaCorrenteMovimentacao conta = new ContaCorrenteMovimentacao();
+		conta.sacar();
+
+	}
+
+}

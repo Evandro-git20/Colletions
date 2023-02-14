@@ -1,0 +1,106 @@
+package comandos;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+
+/*Dada a população estimada de alguns estados do NE brasileiro, faça:
+ * Estado = PE - População = 9.616.621
+ * Estado = AL - População = 93.351.543
+ * Estado = CE - População = 9.187.103
+ * Estado = RN - População = 3.534.265*/
+public class ExerciciosMap {
+
+	public static void main(String[] args) {
+
+		System.out.println("CRIE UM DICIONÁRIO E RELACIONE OS ESTADOS E SUA POPULAÇÕES");
+		Map<String, Double> estadosPopulacoes = new HashMap<>(){{
+			put("PE", 9616.621);
+			put("AL", 3351.543);
+			put("CE", 9187.103);
+			put("RN", 3534.265);
+		}
+		};
+		for (Map.Entry<String, Double> entry : estadosPopulacoes.entrySet()) {
+			System.out.println(entry);
+		}
+		
+		System.out.println("\nSubstitua a população do estado RN por 3534.165:");
+		estadosPopulacoes.put("RN", 3534.165);
+		for (Map.Entry<String, Double> entry: estadosPopulacoes.entrySet()) {
+			System.out.println(entry);
+		}
+		
+		System.out.println("\nConfira se o estado da PB está no dicionário, caso não, adicione: PB - 4039.277");
+		System.out.println(estadosPopulacoes.containsKey("PB"));
+		estadosPopulacoes.put("PB", 4039.277);
+		System.out.println(estadosPopulacoes);
+		
+		System.out.println("\nExiba a população de PE:\n"+estadosPopulacoes.get("PE"));
+		
+		System.out.println("\nExiba todos os estados e suas populações na ordem em que foram inseridos: ");
+		Map<String, Double> estadosPopulacoes1 = new LinkedHashMap<>(){{
+			put("PE", 9616.621);
+			put("AL", 3351.543);
+			put("CE", 9187.103);
+			put("RN", 3534.265);
+		}
+		};
+		for (Map.Entry<String, Double> string : estadosPopulacoes1.entrySet()) {
+			System.out.println(string);
+		}
+		
+		System.out.println("\nExiba os estados e suas populações em ordem alfabética:");
+		Map<String, Double> alfabetica = new TreeMap<>(estadosPopulacoes1);
+		for (Map.Entry<String, Double> entry : alfabetica.entrySet()) {
+			System.out.println(entry);
+		}
+		
+		System.out.println("\nExiba o estado com a menor população e sua quantidade:");
+		Double menorPopulacao = Collections.min(estadosPopulacoes1.values());
+		String estadoMenorPopulacao = "";		
+		Set<Map.Entry<String, Double>> menoresPopulacoes = estadosPopulacoes1.entrySet();
+		for (Map.Entry<String, Double> entry : menoresPopulacoes) {
+			if(entry.getValue().equals(menorPopulacao))
+				estadoMenorPopulacao = entry.getKey();
+		}
+		System.out.println(menorPopulacao+" - "+menorPopulacao);
+		
+		System.out.println("\nExiba o estado com a maior população e sua quantidade: ");
+		Double maiorPopulacao = Collections.max(estadosPopulacoes1.values());
+		String estadoMaiorPopulacao = "";
+		Set<Map.Entry<String, Double>> maioresPopulacoes = estadosPopulacoes1.entrySet();
+		for (Map.Entry<String, Double> entry : maioresPopulacoes) {
+			if(entry.getValue().equals(maiorPopulacao))
+				estadoMaiorPopulacao = entry.getKey();
+		}
+		System.out.println(estadoMaiorPopulacao+" - "+maiorPopulacao);
+		
+		System.out.println("\nExiba a soma da população de todos os estados:");
+		Double soma = 0d;
+		for (Map.Entry<String, Double> entry : maioresPopulacoes) {
+			soma += entry.getValue();
+		}
+		System.out.println(soma);
+		
+		System.out.println("\nExiba a média da população dos estados:\n"+soma/maioresPopulacoes.size());
+		
+		System.out.println("Remova os estados com a população menor que 4000000:");
+		Iterator<Double> iterator = estadosPopulacoes1.values().iterator();				
+		while(iterator.hasNext()) {
+			if(iterator.next() < 4000000.00)
+				iterator.remove();
+		}
+		for (Map.Entry<String, Double> entry : maioresPopulacoes) {
+			System.out.println(entry);
+		}	
+
+	}
+
+}

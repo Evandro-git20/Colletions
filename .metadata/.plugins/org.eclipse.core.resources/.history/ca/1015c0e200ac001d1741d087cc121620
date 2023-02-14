@@ -1,0 +1,46 @@
+package comandos;
+
+import java.util.Objects;
+
+public class EstadoPopulacao {
+	private String nome;
+	private Double populacao;
+	public EstadoPopulacao(String nome, Double populacao) {
+		super();
+		this.nome = nome;
+		this.populacao = populacao;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public Double getPopulacao() {
+		return populacao;
+	}
+	public void setPopulacao(Double populacao) {
+		this.populacao = populacao;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome, populacao);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EstadoPopulacao other = (EstadoPopulacao) obj;
+		return Objects.equals(nome, other.nome) && Objects.equals(populacao, other.populacao);
+	}
+	@Override
+	public String toString() {
+		return "EstadoPopulacao [nome=" + nome + ", populacao=" + populacao + "]";
+	}
+	
+	
+}

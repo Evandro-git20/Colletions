@@ -1,0 +1,39 @@
+package comandos;
+
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class OrdenacaoSet implements Comparable<OrdenacaoSet>{
+
+	public static void main(String[] args) {
+		
+		
+		Set<Serie> series = new HashSet<>(){{
+			add(new Serie(" jafe", " Romance", 60));
+			add(new Serie(" O livro de Eli", " Apocaliptico", 60));
+			add(new Serie(" Javao", " Programacao", 180));
+		}};
+		
+		for (Serie serie : series) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+		
+		Set<Serie> series1 = new LinkedHashSet<>(){{
+			add(new Serie(" jafe", " Romance", 60));
+			add(new Serie(" O livro de Eli", " Apocaliptico", 60));
+			add(new Serie(" Javao", " Programacao", 180));
+		}};
+		
+		for (Serie serie : series) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+	}
+
+	@Override
+	public int compareTo(OrdenacaoSet o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,42 @@
+package comandos;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class OrdenacaoSet {
+
+	public static void main(String[] args) {
+		
+		
+		Set<Serie> series = new HashSet<>(){{
+			add(new Serie(" jafe", " Romance", 60));
+			add(new Serie(" O livro de Eli", " Apocaliptico", 60));
+			add(new Serie(" Javao", " Programacao", 180));
+		}};
+		
+		for (Serie serie : series) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+		System.out.println();
+		Set<Serie> series1 = new LinkedHashSet<>(){{
+			add(new Serie(" jafe", " Romance", 60));
+			add(new Serie(" O livro de Eli", " Apocaliptico", 60));
+			add(new Serie(" Javao", " Programacao", 180));
+		}};
+		
+		for (Serie serie : series1) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+
+		System.out.println();
+		Set<Serie> series2 = new TreeSet<Serie>(series1);
+		
+		for (Serie serie : series2) {
+			System.out.println(serie.getNome()+", "+serie.getGenero()+", "+serie.getTempoEpisodio());
+		}
+	}
+
+}
