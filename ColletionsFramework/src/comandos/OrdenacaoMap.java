@@ -56,10 +56,28 @@ public class OrdenacaoMap implements Iterator<OrdenacaoMap> {
 		}
 		
 		System.out.println("\nOrdenação alfabética por número de páginas: ");
-		Set<Map.Entry<String, Livro>> numeros = new TreeSet<>(new ComparaPaginas());
+		/*Set<Map.Entry<String, Livro>> numeros = new TreeSet<>(new Comparator<Map.Entry<String, Livro>>() {
+
+			@Override
+			public int compare(Entry<String, Livro> o1, Entry<String, Livro> o2) {
+				// TODO Auto-generated method stub
+				return Integer.compare(o1.getValue().getPaginas(), o2.getValue().getPaginas());
+			}
+		});*/
+		
+		/*Set<Entry<String, Livro>> numeros = new TreeSet<>(Comparator.comparing(new Function<Entry<String, Livro>, Integer>() {
+
+			@Override
+			public Integer apply(Entry<String, Livro> t) {
+				// TODO Auto-generated method stub
+				return t.getValue().getPaginas();
+			}
+		}));*/
+		
+		Set<Entry<String, Livro>> numeros = new TreeSet<>(Comparator.comparing(para -> para.getValue().getPaginas()));
 		numeros.addAll(alfabetica.entrySet());
 		for (Entry<String, Livro> entry : numeros) {
-			System.out.println(entry);
+			System.out.println(entry.getValue().getPaginas());
 		}
 		
 	}
@@ -88,7 +106,7 @@ class ComparaNome implements Comparator<Map.Entry<String, Livro>>{
 	
 }
 
-class ComparaPaginas implements Comparator<Map.Entry<String, Livro>>{
+/*class ComparaPaginas implements Comparator<Map.Entry<String, Livro>>{
 
 	@Override
 	public int compare(Map.Entry<String, Livro> livro1, Map.Entry<String, Livro> livro2) {
@@ -96,5 +114,5 @@ class ComparaPaginas implements Comparator<Map.Entry<String, Livro>>{
 		return livro1.getValue().getPaginas().compareTo(livro2.getValue().getPaginas());
 	}
 	
-}
+}*/
 
